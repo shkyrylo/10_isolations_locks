@@ -1,0 +1,56 @@
+services:
+#  mysql:
+#    image: mysql:5.7
+#    container_name: mysql-empty-db
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: emptydb
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mysql_data:/var/lib/mysql
+#  mariadb:
+#    image: mariadb:10.11
+#    container_name: mariadb
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: emptydb
+#    ports:
+#      - "3307:3306"
+#    volumes:
+#      - mariadb_data:/var/lib/mysql
+
+#  postgres:
+#    image: postgres:15
+#    container_name: postgres-db
+#    environment:
+#      POSTGRES_USER: test
+#      POSTGRES_PASSWORD: test
+#      POSTGRES_DB: test
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+
+  vertica:
+    image: vertica/vertica-ce:24.1.0-0
+    container_name: vertica
+    ports:
+      - "5433:5433"
+    environment:
+      - VERTICA_DB_NAME=test
+      - VERTICA_DB_PASSWORD=test
+      - VERTICA_DB_USER=test
+      - ACCEPT_EULA=Y
+    volumes:
+      - vertica_data:/data
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+
+volumes:
+#  mysql_data:
+#  mariadb_data:
+#  postgres_data:
+  vertica_data:
