@@ -30,7 +30,6 @@
 | **Non-Repeatable Read** |          ❌           |         ❌          |          ✅          |        ✅         |
 | **Phantom Read**        |          ❌           |         ❌          |          ✅          |        ✅         |
 
-
 * READ UNCOMMITED та READ COMMITED однаково
 * Як працює SERIALIZABLE порівняно з MySQL:
   * дозволяє читати рядок транзакції 2, навіть якщо транзакція 1 наразі оновлює його.
